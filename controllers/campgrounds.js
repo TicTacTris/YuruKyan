@@ -4,10 +4,28 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require("../cloudinary");
 
+// module.exports.index = async (req, res) => {
+//     const campgrounds = await Campground.find({}).populate('popupText');
+//     res.render('campgrounds/index', { campgrounds })
+// }
 
 module.exports.index = async (req, res) => {
-    const campgrounds = await Campground.find({}).populate('popupText');
-    res.render('campgrounds/index', { campgrounds })
+    const perPage = 8;
+    const pageQuery = parseInt(req.query.page);
+    const pageNumber = pageQuery ? pageQuery : 1;
+    Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allCampgrounds) {
+        Campground.count().exec(function (err, count) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.render("campgrounds/index", {
+                    campgrounds: allCampgrounds,
+                    current: pageNumber,
+                    pages: Math.ceil(count / perPage)
+                });
+            }
+        });
+    });
 }
 
 module.exports.renderNewForm = (req, res) => {

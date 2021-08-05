@@ -24,8 +24,6 @@ const reviewRoutes = require('./routes/reviews');
 
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
 
-
-
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -36,7 +34,7 @@ mongoose.connect(dbUrl, {
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
-    console.log("Database connected");
+    console.log(`Database connected to ${dbUrl}`);
 });
 
 const app = express();
@@ -123,5 +121,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Serving on port ${port}`)
 })
-
-
