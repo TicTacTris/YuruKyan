@@ -1,7 +1,6 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
-// require('dotenv').config(); must be included if app is used in production environment
 
 const express = require('express');
 const path = require('path');

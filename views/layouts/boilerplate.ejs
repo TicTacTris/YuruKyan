@@ -15,13 +15,17 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/stylesheets/app.css">
+    <link rel="stylesheet" href="/stylesheets/boilerplate.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+    <!-- Custom Assets -->
+    <link rel="icon" href="./assets/yurucamp_favicon.png">
 
 </head>
 
 <body class="d-flex flex-column vh-100">
     <%- include('../partials/navbar')%>
-    <main class="container mt-5">
+    <main class="container">
         <%- include('../partials/flash')%>
         <%- body %>
     </main>
