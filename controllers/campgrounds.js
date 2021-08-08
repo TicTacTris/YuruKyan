@@ -4,11 +4,6 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({ accessToken: mapBoxToken });
 const { cloudinary } = require("../cloudinary");
 
-// module.exports.index = async (req, res) => {
-//     const campgrounds = await Campground.find({}).populate('popupText');
-//     res.render('campgrounds/index', { campgrounds })
-// }
-
 module.exports.index = async (req, res) => {
     const perPage = 8;
     const pageQuery = parseInt(req.query.page);
@@ -18,7 +13,7 @@ module.exports.index = async (req, res) => {
             if (err) {
                 console.log(err);
             } else {
-                res.render("campgrounds/index", {
+                res.render("campgrounds", {
                     campgrounds: allCampgrounds,
                     current: pageNumber,
                     pages: Math.ceil(count / perPage)
@@ -73,7 +68,6 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.updateCampground = async (req, res) => {
     const { id } = req.params;
-    console.log(req.body);
     const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground });
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     campground.images.push(...imgs);

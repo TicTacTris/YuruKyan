@@ -1,29 +1,42 @@
 body {
-    background-color: #E76F51;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url("/assets/yurucamp2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+textarea {
+    resize: none;
 }
 
 .navbar-footer-custom,.nav-link {
-    background-color: #E9C46A;
-    color: #264653;
+    background-color: #9DD9D2;
+    color: #392F5A;
+}
+
+.transparent-background {
+    padding: 1em;
+    color: #392F5A;
+    font-weight: bold;
+    border-radius: 10px;
+    background: linear-gradient( rgba(255,255,255,0.6), rgba(255,255,255,0.6))
 }
 
 .navbar-brand {
-    color: #264653;
+    color: #392F5A;
     font-weight: bold;
     font-size: x-large;
 }
 
-.card-img-top {
+.cardBG {
+    padding: 1em;
+    font-weight: bold;
+    color: #392F5A;
     background-color: #F4A261;
-}
-
-#card-login, #card-register {
-    color: #264653;
-    background-color: #E9C46A
+    border-radius: 10px;
 }
 
 #btn-login, #btn-register {
-    background-color: #2A9D8F;
+    background-color: #392F5A;
 }
 
 #cluster-map {
