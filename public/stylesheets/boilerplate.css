@@ -8,17 +8,12 @@ textarea {
     resize: none;
 }
 
-.navbar-footer-custom,.nav-link {
-    background-color: #9DD9D2;
-    color: #392F5A;
-}
-
-.transparent-background {
-    padding: 1em;
+.cardBG {
+    background-color: #F4A261;
+    border-radius: 10px;
     color: #392F5A;
     font-weight: bold;
-    border-radius: 10px;
-    background: linear-gradient( rgba(255,255,255,0.6), rgba(255,255,255,0.6))
+    padding: 1em;
 }
 
 .navbar-brand {
@@ -27,12 +22,17 @@ textarea {
     font-size: x-large;
 }
 
-.cardBG {
-    padding: 1em;
-    font-weight: bold;
+.navbar-footer-custom,.nav-link {
+    background-color: #9DD9D2;
     color: #392F5A;
-    background-color: #F4A261;
+}
+
+.transparent-background {
+    background: linear-gradient( rgba(255,255,255,0.6), rgba(255,255,255,0.6));
     border-radius: 10px;
+    color: #392F5A;
+    font-weight: bold;
+    padding: 1em;
 }
 
 #btn-login, #btn-register {
